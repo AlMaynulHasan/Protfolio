@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Al-Maynul Hasan | CSE Undergraduate</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* SaaS Inspired Vibrant Color Palette */
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --primary-green: #0F5132;
+            --primary-gradient: linear-gradient(135deg, #0F5132 0%, #198754 100%);
+            --saas-emerald: #10B981;
+            --saas-teal: #0D9488;
+            --saas-blue: #2563EB;
+            --saas-purple: #7C3AED;
+            --saas-amber: #D97706;
+            
+            --text-dark: #0F172A;
+            --text-muted: #334155;
+            --text-light: #64748B;
+            --pill-bg: #F1F5F9;
+            --pill-border: #E2E8F0;
+            --border-color: #E2E8F0;
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
+            
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.04) 0%, transparent 40%);
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .brand-avatar {
+            width: 42px;
+            height: 42px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(15, 81, 50, 0.25);
+        }
+
+        .brand-text h1 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--saas-emerald);
+        }
+
+        .nav-btn-contact {
+            background: var(--primary-gradient);
+            color: white !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            box-shadow: 0 4px 14px rgba(15, 81, 50, 0.2);
+            transition: var(--transition);
+        }
+
+        .nav-btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 81, 50, 0.3);
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1240px;
+            margin: 2.5rem auto 0;
+            padding: 0 2rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 3.2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .level-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1rem;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #047857;
+            width: fit-content;
+        }
+
+        .dot-active {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #10B981;
+        }
+
+        .hero-title {
+            font-size: 2.9rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: -0.3rem;
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.65;
+            max-width: 620px;
+        }
+
+        .pills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .pill-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .pill-item i {
+            color: var(--saas-teal);
+            font-size: 0.85rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .btn-green {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 14px rgba(15, 81, 50, 0.25);
+            transition: var(--transition);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15, 81, 50, 0.35);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--pill-bg);
+            border-color: #CBD5E1;
+        }
+
+        .btn-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+
+        .btn-icon:hover {
+            background: var(--pill-bg);
+            color: var(--saas-emerald);
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .image-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            padding: 5px;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #0F172A;
+            aspect-ratio: 4/5;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .photo-overlay-badge {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.1rem;
+            border-radius: 14px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .photo-overlay-badge h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+        }
+
+        .photo-overlay-badge p {
+            font-size: 0.75rem;
+            color: #94A3B8;
+        }
+
+        /* --- SUB HERO CARDS GRID --- */
+        .subhero-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .profile-summary-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .summary-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+        }
+
+        .summary-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .summary-content p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
+        .cgpa-card {
+            background: var(--primary-gradient);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 12px 30px rgba(15, 81, 50, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cgpa-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dept-tag {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(4px);
+            padding: 0.35rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .cgpa-value {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+            letter-spacing: -1px;
+        }
+
+        .cgpa-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-bottom: 1.2rem;
+        }
+
+        .cgpa-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding-top: 1rem;
+        }
+
+        .cgpa-bullets li {
+            font-size: 0.82rem;
+            opacity: 0.92;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* --- SKILLS SECTION WITH SAAS SHADING --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .section-header-icon {
+            width: 40px;
+            height: 40px;
+            background: #ECFDF5;
+            color: var(--saas-emerald);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border: 1px solid #A7F3D0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.3px;
+        }
+
+        .skill-filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.65rem 1.5rem;
+            border-radius: 30px;
+            background: white;
+            border: 1px solid var(--border-color);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(15, 81, 50, 0.25);
+        }
+
+        .skills-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* SaaS Color Shading Variables per skill card */
+        .skill-item-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.6rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 0.88rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--card-accent, #10B981);
+        }
+
+        .skill-item-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-card-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: var(--icon-bg, #ECFDF5);
+            color: var(--icon-color, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .skill-title-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+        }
+
+        .skill-level-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--icon-color, #059669);
+            margin-top: 0.2rem;
+        }
+
+        .skill-card-desc {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        /* Core Strengths & Languages Section */
+        .skills-bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .strengths-card, .languages-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .strengths-card h3, .languages-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .strengths-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .strength-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.1rem;
+            background: #F0FDF4;
+            border: 1px solid #DCFCE7;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #166534;
+        }
+
+        .lang-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+
+        .lang-item {
+            background: #F8FAFC;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 0.5rem;
+            text-align: center;
+        }
+
+        .lang-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .lang-item span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #059669;
+        }
+
+        /* --- COURSEWORK ROADMAP --- */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .course-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-card-header h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .badge-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .badge-completed { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+        .badge-running { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .badge-upcoming { background: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; }
+
+        .course-item-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .course-item-list li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .course-item-list li i {
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- PROJECTS PORTFOLIO (WITH DIRECT GITHUB REPO LINKS) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .project-desc {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            line-height: 1.55;
+        }
+
+        .project-bullets {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .project-bullets li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .project-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--saas-emerald);
+            font-weight: bold;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #0F172A;
+            color: white;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .github-btn:hover {
+            background: #1E293B;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--pill-bg);
+            color: var(--text-dark);
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 1rem;
+            color: var(--text-light);
+            font-size: 0.88rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 992px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+            .subhero-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-bottom-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="brand">
+                <div class="brand-avatar">MH</div>
+                <div class="brand-text">
+                    <h1>MD. AL-MAYNUL HASAN</h1>
+                    <span>CSE Undergraduate</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#coursework">Coursework</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="mailto:maynulhasan625@gmail.com" class="nav-btn-contact">Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <!-- HERO SECTION -->
+        <section id="about" class="hero-section">
+            <div class="hero-left">
+                <div class="level-pill">
+                    <span class="dot-active"></span> LEVEL 3-I • CGPA: 3.62 / 4.00
+                </div>
+
+                <h1 class="hero-title">Hi, I'm <span>MD. AL-MAYNUL HASAN</span></h1>
+                <div class="hero-subtitle">CSE Undergraduate Student & Aspiring Software Developer</div>
+
+                <p class="hero-description">
+                    Passionate about mobile apps (Flutter), full-stack web applications, microcontroller safety engineering, machine learning/AI concepts, and algorithmic problem solving at <strong>BAUST, Saidpur</strong>.
+                </p>
+
+                <!-- Contact Pills -->
+                <div class="pills-container">
+                    <div class="pill-item">
+                        <i class="fa-solid fa-location-dot"></i> Pirganj, Rangpur, Bangladesh
+                    </div>
+                    <div class="pill-item">
+                        <i class="fa-solid fa-phone"></i> 01521747229
+                    </div>
+                    <div class="pill-item">
+                        <i class="fa-solid fa-envelope"></i> maynulhasan625@gmail.com
+                    </div>
+                </div>
+
+                <!-- CTA Action Buttons -->
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-green">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="mailto:maynulhasan625@gmail.com" class="btn-outline">Contact Me</a>
+                    <a href="https://raw.githubusercontent.com/AlMaynulHasan/Protfolio/main/resume/resume.pdf" target="_blank" class="btn-outline"><i class="fa-solid fa-download"></i> Resume</a>
+                    <a href="https://linkedin.com/in/maynul-hasan-536460326" target="_blank" class="btn-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/AlMaynulHasan" target="_blank" class="btn-icon"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT PHOTO CARD WITH RAW GITHUB DIRECT IMAGE URL -->
+            <div class="hero-right">
+                <div class="image-frame">
+                    <div class="image-container">
+                        <img src="https://raw.githubusercontent.com/AlMaynulHasan/Protfolio/main/profile.jpeg" alt="Md. Al-Maynul Hasan">
+                        <div class="photo-overlay-badge">
+                            <h4>BAUST • CSE Dept.</h4>
+                            <p>Saidpur, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUB HERO GRID -->
+        <div class="subhero-grid">
+            <div class="profile-summary-card">
+                <div class="summary-icon">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <div class="summary-content">
+                    <h3>Academic & Career Profile</h3>
+                    <p>
+                        Dedicated Computer Science & Engineering undergraduate at Bangladesh Army University of Science and Technology (BAUST). Successfully completed <strong>Level 2-II with a cumulative GPA of 3.62 / 4.00</strong>, currently enrolled in <strong>Level 3-I</strong>. Keenly focused on software engineering principles, UI/UX design, mobile/web development, machine learning, and hardware systems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CGPA DISPLAY CARD -->
+            <div class="cgpa-card">
+                <div class="cgpa-top">
+                    <span class="dept-tag">BAUST CSE</span>
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 1.4rem; opacity: 0.85;"></i>
+                </div>
+                <div>
+                    <div class="cgpa-value">3.62</div>
+                    <div class="cgpa-label">Cumulative Grade Point Average</div>
+                </div>
+                <ul class="cgpa-bullets">
+                    <li><i class="fa-solid fa-check-circle"></i> Level 1-I to Level 2-II Completed</li>
+                    <li><i class="fa-solid fa-spinner fa-spin"></i> Level 3-I Currently Running</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SKILLS SECTION WITH SAAS VIBRANT COLOR SHADING -->
+        <section id="skills">
+            <div class="section-header">
+                <div class="section-header-icon"><i class="fa-solid fa-code"></i></div>
+                <h2 class="section-title">Technical & Specialized Skills</h2>
+            </div>
+
+            <div class="skill-filter-tabs">
+                <button class="filter-btn active">All Skills</button>
+                <button class="filter-btn">Languages</button>
+                <button class="filter-btn">Web & Mobile</button>
+                <button class="filter-btn">AI & Machine Learning</button>
+                <button class="filter-btn">Database & Hardware</button>
+                <button class="filter-btn">Tools & UI/UX</button>
+            </div>
+
+            <div class="skills-card-grid">
+                <!-- C / C++ (Emerald SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #10B981; --icon-bg: #ECFDF5; --icon-color: #059669;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-code"></i></div>
+                        <div class="skill-title-box">
+                            <h3>C / C++</h3>
+                            <div class="skill-level-tag">Strong Foundation</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Used for problem solving, competitive coding, and core algorithm coursework.</p>
+                </div>
+
+                <!-- Java (Amber SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #F59E0B; --icon-bg: #FFFBEB; --icon-color: #D97706;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-java"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Java</h3>
+                            <div class="skill-level-tag">Intermediate</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Applied in OOP desktop projects, Java Swing UI, and database tools.</p>
+                </div>
+
+                <!-- Python (Blue SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #3B82F6; --icon-bg: #EFF6FF; --icon-color: #2563EB;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-python"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Python</h3>
+                            <div class="skill-level-tag">Basic / Interm.</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Utilized for data structures, numerical scripts, AI & ML foundations.</p>
+                </div>
+
+                <!-- Machine Learning & AI (Purple SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #8B5CF6; --icon-bg: #F5F3FF; --icon-color: #7C3AED;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-brain"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Machine Learning & AI</h3>
+                            <div class="skill-level-tag">Coursework / Core</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Artificial Intelligence (CSE 3201) & Machine Learning (CSE 4139) academic curriculum.</p>
+                </div>
+
+                <!-- JavaScript (Yellow SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #EAB308; --icon-bg: #FEFCE8; --icon-color: #CA8A04;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-js"></i></div>
+                        <div class="skill-title-box">
+                            <h3>JavaScript</h3>
+                            <div class="skill-level-tag">Intermediate</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Interactive client-side web scripting and Node.js backend logic.</p>
+                </div>
+
+                <!-- Flutter (Sky Blue SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #06B6D4; --icon-bg: #ECFEFF; --icon-color: #0891B2;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Flutter</h3>
+                            <div class="skill-level-tag">Currently Learning</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Mobile cross-platform engineering (NeighborCart app project).</p>
+                </div>
+
+                <!-- HTML5 & CSS3 (Orange SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #F97316; --icon-bg: #FFF7ED; --icon-color: #EA580C;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-html5"></i></div>
+                        <div class="skill-title-box">
+                            <h3>HTML5 & CSS3</h3>
+                            <div class="skill-level-tag">Proficient</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Semantic responsive layout, Flexbox, and CSS Grid design.</p>
+                </div>
+
+                <!-- Node.js (Green Teal SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #10B981; --icon-bg: #ECFDF5; --icon-color: #059669;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-node-js"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Node.js</h3>
+                            <div class="skill-level-tag">Intermediate</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Backend web API handling and server logic implementation.</p>
+                </div>
+
+                <!-- SQL & MS SQL (Indigo SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #6366F1; --icon-bg: #EEF2FF; --icon-color: #4F46E5;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-database"></i></div>
+                        <div class="skill-title-box">
+                            <h3>SQL & MS SQL</h3>
+                            <div class="skill-level-tag">Proficient</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Database architecture, relational queries, and constraints.</p>
+                </div>
+
+                <!-- Microcontrollers / Arduino (Rose Red SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #F43F5E; --icon-bg: #FFF1F2; --icon-color: #E11D48;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Microcontrollers / Arduino</h3>
+                            <div class="skill-level-tag">Hands-on Project</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Driver Drowsiness & Room automation embedded systems.</p>
+                </div>
+
+                <!-- Figma (Pink SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #EC4899; --icon-bg: #FDF2F8; --icon-color: #DB2777;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-brands fa-figma"></i></div>
+                        <div class="skill-title-box">
+                            <h3>Figma</h3>
+                            <div class="skill-level-tag">UI/UX Prototyping</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Interface wireframing and interactive mobile app layouts.</p>
+                </div>
+
+                <!-- OpenPDF & Gson (Teal SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #14B8A6; --icon-bg: #F0FDFA; --icon-color: #0D9488;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-file-pdf"></i></div>
+                        <div class="skill-title-box">
+                            <h3>OpenPDF & Gson</h3>
+                            <div class="skill-level-tag">Java Libraries</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">PDF rendering and JSON serialization tools.</p>
+                </div>
+
+                <!-- MS Office Suite (Blue Slate SaaS Theme) -->
+                <div class="skill-item-card" style="--card-accent: #64748B; --icon-bg: #F8FAFC; --icon-color: #475569;">
+                    <div class="skill-card-top">
+                        <div class="skill-icon-box"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="skill-title-box">
+                            <h3>MS Office Suite</h3>
+                            <div class="skill-level-tag">Proficient</div>
+                        </div>
+                    </div>
+                    <p class="skill-card-desc">Documentation, presentation, and data management (Word, Excel, PPT).</p>
+                </div>
+            </div>
+
+            <!-- CORE STRENGTHS & LANGUAGES -->
+            <div class="skills-bottom-grid">
+                <div class="strengths-card">
+                    <h3><i class="fa-solid fa-lightbulb"></i> Core Strengths</h3>
+                    <div class="strengths-pills">
+                        <span class="strength-pill"><i class="fa-solid fa-check"></i> Willingness to Learn</span>
+                        <span class="strength-pill"><i class="fa-solid fa-check"></i> Logical Problem Solving</span>
+                        <span class="strength-pill"><i class="fa-solid fa-check"></i> Team Collaboration</span>
+                        <span class="strength-pill"><i class="fa-solid fa-check"></i> Self-Motivated</span>
+                        <span class="strength-pill"><i class="fa-solid fa-check"></i> Adaptability</span>
+                    </div>
+                </div>
+
+                <div class="languages-card">
+                    <h3><i class="fa-solid fa-language"></i> Languages</h3>
+                    <div class="lang-cards-grid">
+                        <div class="lang-item">
+                            <h4>Bangla</h4>
+                            <span>Native</span>
+                        </div>
+                        <div class="lang-item">
+                            <h4>English</h4>
+                            <span>Working Prof.</span>
+                        </div>
+                        <div class="lang-item">
+                            <h4>Hindi</h4>
+                            <span>Conversational</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSEWORK ROADMAP SECTION -->
+        <section id="coursework">
+            <div class="section-header">
+                <div class="section-header-icon"><i class="fa-solid fa-book-open"></i></div>
+                <h2 class="section-title">Coursework Roadmap</h2>
+            </div>
+
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-card-header">
+                        <h3>Completed Courses</h3>
+                        <span class="badge-status badge-completed">L 1-I to L 2-II</span>
+                    </div>
+                    <ul class="course-item-list">
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Structured Programming Language (C)</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Discrete Mathematics</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Object Oriented Programming I & II (Java/C++)</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Data Structures and Algorithm I & II</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Digital Logic Design</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Database Management Systems</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Theory of Computation</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Numerical Methods</li>
+                        <li><i class="fa-solid fa-circle-check" style="color: #047857;"></i> Applied Statistics for Computer Science</li>
+                    </ul>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-card-header">
+                        <h3>Current Coursework</h3>
+                        <span class="badge-status badge-running">Level 3-I (Running)</span>
+                    </div>
+                    <ul class="course-item-list">
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Software Engineering & Sessional</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Software Development Project II</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Microprocessors & Microcontrollers</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Computer Architecture</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Data Communication</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Compiler & Sessional</li>
+                        <li><i class="fa-solid fa-spinner fa-spin" style="color: #2563EB;"></i> Basic Mechanical Engineering</li>
+                    </ul>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-card-header">
+                        <h3>Upcoming Courses</h3>
+                        <span class="badge-status badge-upcoming">Level 3-II</span>
+                    </div>
+                    <ul class="course-item-list">
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Web Engineering Project</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Artificial Intelligence & Sessional (CSE 3201)</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Operating System & Sessional</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Computer Networks & Sessional</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Mathematical Analysis for CS</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Information System Design & Sessional</li>
+                    </ul>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-card-header">
+                        <h3>Upcoming Courses</h3>
+                        <span class="badge-status badge-upcoming">Level 4-I</span>
+                    </div>
+                    <ul class="course-item-list">
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Project / Thesis (Phase I)</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Industrial Training</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Computer Security & Sessional</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Computer Graphics & Sessional</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Engineering Economics</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> CSE Option I & II (Electives)</li>
+                    </ul>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-card-header">
+                        <h3>Upcoming Courses</h3>
+                        <span class="badge-status badge-upcoming">Level 4-II</span>
+                    </div>
+                    <ul class="course-item-list">
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Project / Thesis (Phase II)</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Financial & Managerial Accounting</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Industrial Management</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Professional Issues and Ethics in CS</li>
+                        <li><i class="fa-regular fa-clock" style="color: #EA580C;"></i> Machine Learning (Option II / CSE 4139)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS PORTFOLIO SECTION WITH EXACT GITHUB LINKS -->
+        <section id="projects">
+            <div class="section-header">
+                <div class="section-header-icon"><i class="fa-solid fa-folder-open"></i></div>
+                <h2 class="section-title">Projects Portfolio</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- NeighborCart -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-running">Ongoing (L 3-I)</span>
+                        </div>
+                        <h3 class="project-title">NeighborCart — Mobile Application</h3>
+                        <p class="project-desc">Software development project for local community marketplaces.</p>
+                        <ul class="project-bullets">
+                            <li>Developing a mobile UI using Flutter framework.</li>
+                            <li>Designed user flows and wireframes in Figma.</li>
+                            <li>Applying modern software engineering patterns.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Figma</span>
+                            <span class="tag">Software Engineering</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driver Drowsiness -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-running">Ongoing (L 3-I)</span>
+                        </div>
+                        <h3 class="project-title">Driver Drowsiness Detection System</h3>
+                        <p class="project-desc">Microcontroller-based automated vehicle safety solution.</p>
+                        <ul class="project-bullets">
+                            <li>Monitors driver fatigue signs in real-time.</li>
+                            <li>Triggers automated safety responses and alerts.</li>
+                            <li>Built as part of Microprocessors course.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">Microcontrollers</span>
+                            <span class="tag">Sensors</span>
+                            <span class="tag">Embedded Systems</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart City Transport (SCTMS Repo) -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-completed">Completed</span>
+                        </div>
+                        <h3 class="project-title">Smart City Transport Management System</h3>
+                        <p class="project-desc">Web application for urban transport operations and ticketing.</p>
+                        <ul class="project-bullets">
+                            <li>Manages schedules, routes, and passenger ticketing.</li>
+                            <li>Features automated fare calculation & seat availability.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MS SQL Server</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan/SCTMS" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lost & Found Website Repo -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-completed">Completed</span>
+                        </div>
+                        <h3 class="project-title">Lost & Found Website</h3>
+                        <p class="project-desc">Community web platform for reporting and recovering lost items.</p>
+                        <ul class="project-bullets">
+                            <li>Allows users to post details and photos of lost or found items.</li>
+                            <li>Categorized search and verification system for owners.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Database</span>
+                            <span class="tag">Community Tool</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan/LostAndFound-website" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV Builder with Admin Panel Repo -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-completed">Completed</span>
+                        </div>
+                        <h3 class="project-title">CV Builder System with Admin Panel</h3>
+                        <p class="project-desc">Desktop CV generation application with administrative controls.</p>
+                        <ul class="project-bullets">
+                            <li>Interactive GUI built using Java Swing.</li>
+                            <li>OpenPDF for PDF export and Gson for data handling.</li>
+                            <li>Admin panel for managing user profiles and system records.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">Java Swing</span>
+                            <span class="tag">OpenPDF</span>
+                            <span class="tag">Gson</span>
+                            <span class="tag">Admin Panel</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan/CVBuilder_with_admin_Panel" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Assistant Toolkit Repo -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-top-bar">
+                            <span class="badge-status badge-completed">Completed</span>
+                        </div>
+                        <h3 class="project-title">Medical Assistant Toolkit</h3>
+                        <p class="project-desc">Desktop healthcare management utility and record system.</p>
+                        <ul class="project-bullets">
+                            <li>Java-based desktop application concept with database.</li>
+                            <li>Organized health records, medical toolkits, and assistant features.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tag-list" style="margin-bottom: 0.8rem;">
+                            <span class="tag">Java</span>
+                            <span class="tag">Database</span>
+                            <span class="tag">Desktop App</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/AlMaynulHasan/Medical-Assistant-ToolKit" target="_blank" class="github-btn"><i class="fa-brands fa-github"></i> View Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Md. Al-Maynul Hasan. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
